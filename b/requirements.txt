@@ -1,0 +1,15 @@
+flask
+flask-cors
+geopandas
+numpy
+matplotlib
+shapely
+pandas
+pathlib
+statsmodels
+folium
+scikit-learn
+fiona
+pyproj
+six
+rtree

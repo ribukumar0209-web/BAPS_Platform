@@ -1,0 +1,33 @@
+.dark-theme {
+  --primary-background-color: #0f172a;
+  --secondary-background-color: #1e293b;
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --input-background-color: rgba(15, 23, 42, 0.6);
+  --input-border-color: rgba(255, 255, 255, 0.2);
+  
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(15, 23, 42, 0.85); /* Slightly more opaque for better readability */
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  
+  /* Vibrant Gradients */
+  --heading-gradient: linear-gradient(135deg, #38bdf8 0%, #c084fc 100%); /* Neon sky blue to bright purple */
+  --button-bg-color: #3b82f6;
+  --button-bg-gradient: linear-gradient(135deg, #2563eb, #7c3aed);
+  --button-text-color: white;
+  --button-disabled-bg-color: #475569;
+  --button-hover-bg-color: #2563eb;
+  
+  --message-bg-success: rgba(34, 197, 94, 0.2);
+  --message-color-success: #4ade80;
+  --message-border-success: #22c55e;
+  
+  --message-bg-error: rgba(239, 68, 68, 0.2);
+  --message-color-error: #f87171;
+  --message-border-error: #ef4444;
+  
+  --accent-color: #8b5cf6;
+  --logo-background-circle-color: #1e293b;
+}

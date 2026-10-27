@@ -1,0 +1,16 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
+const [isLegendMinimized, setIsLegendMinimized] = useState(false);
+// Wait, the additional zip might contain transects or forecast shapefiles. Let's just process them all.
+<button onClick={toggleTheme} className="theme-toggle-icon" title="Toggle Theme" style={{ background: 'transparent', border: '2px solid var(--border-color)', borderRadius: '50%', cursor: 'pointer', fontSize: '16px', lineHeight: 1, width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0', transition: 'border-color 0.2s ease', flexShrink: 0 }}>
+url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+polyline: false,
+<div className="map-legend" style={{ bottom: isLegendMinimized ? 'auto' : '30px', padding: isLegendMinimized ? '10px' : '15px' }}>
+<div className="legend-header" style={{ marginBottom: isLegendMinimized ? '0' : '10px', paddingBottom: isLegendMinimized ? '0' : '8px', borderBottom: isLegendMinimized ? 'none' : '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+<span style={{ fontWeight: 'bold', fontSize: '13px' }}>Legend</span>
+onClick={() => setIsLegendMinimized(!isLegendMinimized)}
+title={isLegendMinimized ? "Maximize Legend" : "Minimize Legend"}
+{isLegendMinimized ? '➕' : '➖'}
+{!isLegendMinimized && [...layers].reverse().map((layer, reverseIdx) => {
+<div key={layer.name} className="legend-item">
+className="legend-color-picker"
+<span className="legend-label">{layer.name}</span>

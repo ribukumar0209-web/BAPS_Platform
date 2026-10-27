@@ -1,0 +1,237 @@
+/* Advanced Layout styles */
+html, body, #root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--primary-background-color);
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Map */
+.map-background {
+  flex-grow: 1;
+  position: relative;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Foreground UI Layer */
+.ui-layer {
+  position: relative;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-shrink: 0;
+  background: var(--primary-background-color);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto; /* Show vertical scrollbar */
+  overflow-x: hidden;
+}
+
+/* Custom React Resizer Handle */
+.sidebar-resizer {
+  width: 6px; /* A thin drag handle */
+  height: 100%;
+  cursor: col-resize;
+  background-color: transparent;
+  z-index: 20;
+  transition: background-color 0.2s ease;
+}
+.sidebar-resizer:hover, .sidebar-resizer:active {
+  background-color: var(--accent-color);
+  opacity: 0.8;
+}
+
+/* Left Sidebar Panel */
+.left-panel {
+  pointer-events: auto;
+  width: 100%;
+  height: max-content;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column-reverse; /* Map at top, controls at bottom */
+  }
+
+  .ui-layer {
+    width: 100% !important; /* Override inline width style on mobile */
+    min-width: 100%;
+    max-width: 100%;
+    height: 50vh; /* Bottom half for controls */
+    min-height: 20vh;
+    max-height: 80vh;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    resize: vertical; /* Allow resizing vertically on mobile natively! */
+  }
+
+  .sidebar-resizer {
+    display: none; /* Hide custom horizontal resizer on mobile */
+  }
+  
+  .left-panel {
+    width: 100%;
+    max-width: 100%;
+    height: max-content;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 0;
+  }
+
+  .runner-scroll-area {
+    padding-bottom: 20px;
+  }
+}
+
+
+/* Header */
+.header-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 700;
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.app-description {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 5px 0;
+}
+
+.logo-wrapper-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--logo-background-circle-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.app-logo-small {
+  height: 100%;
+  width: auto;
+}
+
+.theme-toggle-icon {
+  background: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  color: var(--text-color);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  transition: all 0.2s;
+}
+
+.theme-toggle-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px var(--glass-shadow);
+}
+
+/* Modern File Upload */
+.file-upload-modern {
+  position: relative;
+  width: 100%;
+}
+
+.file-upload-modern input[type="file"] {
+  display: none;
+}
+
+.upload-btn-modern {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--input-background-color);
+  border: 2px dashed var(--accent-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-btn-modern:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+.runner-scroll-area {
+  flex-grow: 1;
+  border-radius: 16px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+ }

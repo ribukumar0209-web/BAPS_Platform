@@ -1,0 +1,6 @@
+.resizer {
+  width: 5px;
+  background-color: #aaa;
+  cursor: col-resize;
+  height: 100%;
+}
